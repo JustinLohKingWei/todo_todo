@@ -1,26 +1,33 @@
 import styled from "styled-components";
 
 const InputBoxContainer = styled.div`
-  position: absolute;
+  display: flex;
   min-height: 10%;
   min-width: 100%;
-  background-color: aliceblue;
+  background-color: #2f92e9;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  justify-content: center;
 `;
 
 const InputBoxRoot = styled.div`
-  min-height: 90%;
-  background-color: black;
+ display: flex;
+  min-width: 15em;
+  min-height: 1.5em;
 `;
 const InputBoxTextBox = styled.input`
   min-width: inherit;
   min-height: inherit;
+  padding : 0.1em;
+  border: 0.1em;
+  font-size: xx-large;
 `;
 
 function InputBox() {
   return (
     <InputBoxContainer>
       <InputBoxRoot>
-        <InputBoxTextBox />
+        <InputBoxTextBox placeholder="What needs to be done?" />
       </InputBoxRoot>
     </InputBoxContainer>
   );

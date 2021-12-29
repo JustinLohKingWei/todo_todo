@@ -1,15 +1,17 @@
 import styled from "styled-components";
 
 const HeaderRoot = styled.div`
-position: relative;
-min-height: 10%;
-min-width: 100%;
-`
+  min-height: 25%;
+  min-width: 100%;
+  padding-top: 1em;
+  padding-bottom: 1em ;
+  background-color: #ff0090;
+  display: flex;
+  justify-content: center;
+`;
 
 function Header() {
-    return (
-      <HeaderRoot>WELCOME TO TODO LIST</HeaderRoot>
-    );
-  }
-  
-  export default Header
+  return <HeaderRoot>WELCOME TO TODO LIST</HeaderRoot>;
+}
+
+export default Header;
