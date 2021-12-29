@@ -1,3 +1,6 @@
 {
-  "todoList": []
+  "todoList": [
+    ["todo1", true],
+    ["todo2", false]
+  ]
 }
