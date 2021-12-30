@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { todoItemProp, todoProp } from "../data/todoProps";
 
 const ListBoxRoot = styled.div`
   min-height: 1em;
@@ -7,34 +8,26 @@ const ListBoxRoot = styled.div`
   padding-bottom: 1em;
   background-color: #ffffff;
   display: flex;
-  flex-direction : column;
+  flex-direction: column;
 `;
 
 const ListBoxItem = styled.div`
-min-width: 100%;
-min-height: 1em ;
-font-size : large;
-margin: 0.25em
+  min-width: 100%;
+  min-height: 1em;
+  font-size: large;
+  margin: 0.25em;
 `;
 
-function ListBox() {
-  const listData = {
-    todoList: [
-      ["todo1", true],
-      ["todo2", false],
-      ["todo3", false],
-      ["todo4", false],
-      ["todo5", false],
-      ["todo6", false],
-    ],
-  };
+function ListBox( listData : todoProp) {
 
   return (
     <ListBoxRoot>
       {listData.todoList.map((data, index) => {
-        return <ListBoxItem>
-            {data[0]}-{index+1}
-        </ListBoxItem>;
+        return (
+          <ListBoxItem>
+            {index+1}. {data.name} is {data.completed? "Completed":"Not Completed"}
+          </ListBoxItem>
+        );
       })}
     </ListBoxRoot>
   );

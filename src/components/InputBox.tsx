@@ -1,4 +1,6 @@
+import { useState } from "react";
 import styled from "styled-components";
+import { todoItemProp, todoProp } from "../data/todoProps";
 import ListBox from "./ListBox";
 
 const InputBoxContainer = styled.div`
@@ -16,7 +18,6 @@ const InputBoxRoot = styled.div`
   min-width: 20em;
   min-height: 1.5em;
   flex-direction: column;
-
 `;
 const InputBoxTextBox = styled.input`
   min-width: inherit;
@@ -27,18 +28,38 @@ const InputBoxTextBox = styled.input`
 `;
 
 function InputBox() {
-  const data = {
+  let todoList = {
     todoList: [
-      ["todo1", true],
-      ["todo2", false],
+      { name: "Clean the House", completed: false },
+      { name: "Feed the Dog", completed: false },
+      { name: "Do Homework", completed: false },
     ],
   };
+
+  const [todo, setTodo] = useState(todoList);
+  const [inputQuery, setInputQuery] = useState("");
 
   return (
     <InputBoxContainer>
       <InputBoxRoot>
-        <InputBoxTextBox placeholder="What needs to be done?" />
-        <ListBox/>
+        <InputBoxTextBox
+          placeholder="What needs to be done?"
+          onKeyPress={(event) => {
+            if (event.key === "Enter") {
+              const newTodoItem: todoItemProp = {
+                name: inputQuery,
+                completed: false,
+              };
+              let newTodo = { ...todo };
+              newTodo.todoList.push(newTodoItem);
+              setTodo(newTodo); 
+            }
+          }}
+          onChange={(e) => {
+            setInputQuery(e.target.value);
+          }}
+        />
+        <ListBox {...todo} />
       </InputBoxRoot>
     </InputBoxContainer>
   );
