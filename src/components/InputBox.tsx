@@ -59,7 +59,7 @@ function InputBox() {
             setInputQuery(e.target.value);
           }}
         />
-        <ListBox {...todo} />
+        <ListBox listData={todo} setData={setTodo} />
       </InputBoxRoot>
     </InputBoxContainer>
   );
