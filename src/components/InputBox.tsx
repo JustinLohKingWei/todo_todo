@@ -30,9 +30,9 @@ const InputBoxTextBox = styled.input`
 function InputBox() {
   let todoList = {
     todoList: [
-      { name: "Clean the House", completed: false },
-      { name: "Feed the Dog", completed: false },
-      { name: "Do Homework", completed: false },
+      { name: "Do your Mom", completed: false },
+      { name: "Do your Dad", completed: false },
+      { name: "Do your Grand-pappy", completed: false },
     ],
   };
 
