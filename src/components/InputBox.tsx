@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { todoItemProp, todoProp } from "../data/todoProps";
+import { todoItemProp } from "../data/todoProps";
+import DisplaySelector from "./DisplaySelector";
 import ListBox from "./ListBox";
 
 const InputBoxContainer = styled.div`
@@ -30,14 +31,17 @@ const InputBoxTextBox = styled.input`
 function InputBox() {
   let todoList = {
     todoList: [
-      { name: "Do your Mom", completed: false },
-      { name: "Do your Dad", completed: false },
-      { name: "Do your Grand-pappy", completed: false },
+      { name: "Do the dishes", completed: false },
+      { name: "Bathe the dog", completed: false },
+      { name: "Write a note", completed: true },
+      { name: "Shovel the snow", completed: true },
+      { name: "Clean the windows", completed: true },
     ],
   };
 
   const [todo, setTodo] = useState(todoList);
   const [inputQuery, setInputQuery] = useState("");
+  const [display, setDisplay] = useState("All");
 
   return (
     <InputBoxContainer>
@@ -59,7 +63,8 @@ function InputBox() {
             setInputQuery(e.target.value);
           }}
         />
-        <ListBox listData={todo} setData={setTodo} />
+        <ListBox listData={todo} setData={setTodo} display={display} />
+          <DisplaySelector setDisplay={setDisplay}/>
       </InputBoxRoot>
     </InputBoxContainer>
   );

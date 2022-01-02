@@ -30,27 +30,97 @@ const DeleteButton = styled.div`
 type ListBoxProps = {
   listData: todoProp;
   setData: Dispatch<SetStateAction<todoProp>>;
+  display: string
 };
 
-function ListBox({ listData, setData }: ListBoxProps) {
+function ListBox({ listData, setData,display }: ListBoxProps) {
   return (
     <ListBoxRoot>
       {listData.todoList.map((data, index) => {
-        return (
-          <ListBoxItem>
-            {index + 1}. {data.name} is{" "}
-            {data.completed ? "Completed" : "Not Completed"}
-            <DeleteButton
-              onClick={() =>
-                setData((d) => ({
-                  todoList: d.todoList.filter(
-                    (item) => item.name !== data.name
-                  ),
-                }))
-              }
-            />
-          </ListBoxItem>
-        );
+
+          if(display==="Incomplete"){
+
+            if(data.completed===false){
+              return (
+                <ListBoxItem>
+                  {index + 1}. {data.name} is{" "}
+                  {data.completed ? "Completed" : "Not Completed"}
+                  <DeleteButton
+                    onClick={() =>
+                      setData((d) => ({
+                        todoList: d.todoList.filter(
+                          (item) => item.name !== data.name
+                        ),
+                      }))
+                    }
+                  />
+                </ListBoxItem>
+              );
+            }
+
+          }
+          else if(display==="Complete"){
+
+            if(data.completed===true){
+              return (
+                <ListBoxItem>
+                  {index + 1}. {data.name} is{" "}
+                  {data.completed ? "Completed" : "Not Completed"}
+                  <DeleteButton
+                    onClick={() =>
+                      setData((d) => ({
+                        todoList: d.todoList.filter(
+                          (item) => item.name !== data.name
+                        ),
+                      }))
+                    }
+                  />
+                </ListBoxItem>
+              );
+            }
+
+
+          }
+          else{
+
+            return (
+              <ListBoxItem>
+                {index + 1}. {data.name} is{" "}
+                {data.completed ? "Completed" : "Not Completed"}
+                <DeleteButton
+                  onClick={() =>
+                    setData((d) => ({
+                      todoList: d.todoList.filter(
+                        (item) => item.name !== data.name
+                      ),
+                    }))
+                  }
+                />
+              </ListBoxItem>
+            );
+
+
+          }
+
+
+
+
+
+        // return (
+        //   <ListBoxItem>
+        //     {index + 1}. {data.name} is{" "}
+        //     {data.completed ? "Completed" : "Not Completed"}
+        //     <DeleteButton
+        //       onClick={() =>
+        //         setData((d) => ({
+        //           todoList: d.todoList.filter(
+        //             (item) => item.name !== data.name
+        //           ),
+        //         }))
+        //       }
+        //     />
+        //   </ListBoxItem>
+        // );
       })}
     </ListBoxRoot>
   );
