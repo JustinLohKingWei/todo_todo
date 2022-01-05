@@ -2,7 +2,7 @@
 
 This project is my implementation of the todomvc exercise : https://todomvc.com/examples/react/#/ . 
 
-The application is written as a react application with a typescript configuration, and performs all functionatilites as a frontend application only. That being said , there is no external backend architecture involved .
+The application is written as a react application with a typescript configuration and uses the Styled Components library, and performs all functionatilites as a frontend application only. That being said , there is no external backend architecture involved .
 
 ## Features
 
