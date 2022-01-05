@@ -35,3 +35,4 @@ The application allows a user to
 ### Bugs 
 1. Duplicate entries are accepted , but deletion of one duplicate entry will remove ALL duplicate entries.
 2. Input field does not clear text after user clicks off it.
+3. Missing checkbox to set a todo item as complete
