@@ -17,7 +17,7 @@ The application allows a user to
 - [ ] Node package manager (Node js)
 - [ ] yarn
 
-### Spinning up the application on localhost\
+### Spinning up the application on localhost
 1. Install all prerequisites above
 2. Clone the repository and throw up a terminal
 3. Run `npm install` to install all required node package modules
